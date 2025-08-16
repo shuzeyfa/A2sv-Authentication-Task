@@ -1,69 +1,34 @@
+🚀 A2SV Authentication Task
 
-A2SV Authentication Task
-Project Overview
+A Next.js authentication project with NextAuth, email/password & Google OAuth, and OTP verification.
 
-This project implements user authentication using Next.js, NextAuth, and Axios.
-It includes:
+🌟 Features
 
-User Signup with email/password and Google OAuth
+✅ Signup via Email/Password or Google OAuth
 
-OTP verification for email confirmation
+✅ Signin using Credentials or Google OAuth
 
-User Signin using credentials 
+✅ OTP Verification for email confirmation
 
-Client-side validation and clean UI
+✅ Client-side validation for better UX
 
-Base API URL: https://akil-backend.onrender.com
+✅ Clean and responsive Tailwind UI
 
-Features
+📦 Tech Stack
+Technology	Purpose
+Next.js 13	Frontend framework with App Router
+React 18	UI library
+NextAuth.js	Authentication & session management
+Axios	HTTP requests to backend
+Tailwind CSS	Styling & responsive design
+React Hook Form	Form handling and validation
 
-Signup Page
+🎨 Screenshots
+     - in the SCREENSHOT folder
 
-Users can create accounts via email/password or Google OAuth
+⚡ Installation
 
-Client-side validation for all fields
-
-Redirects to OTP verification after successful signup
-
-Signin Page
-
-Users can login with email/password or Google OAuth
-
-Handles authentication errors gracefully
-
-Stores session securely with NextAuth
-
-OTP Verification Page
-
-Users verify their email using a 4-digit OTP
-
-Countdown timer and resend OTP functionality
-
-Redirects to Signin after successful verification
-
-Security
-
-Passwords are never stored in local storage
-
-Tokens handled securely with NextAuth session
-
-Technologies Used
-
-=> Next.js (App Router)
-
-=> React 18
-
-=> NextAuth.js for authentication
-
-=> Axios for API requests
-
-=> Tailwind CSS for styling
-
-=> React Hook Form for form handling and validation
-
-Installation & Setup
-
-Clone the repository:
+Clone the repo:
 
 git clone https://github.com/shuzeyfa/A2sv-Authentication-Task.git
 cd A2sv-Authentication-Task
@@ -74,9 +39,7 @@ Install dependencies:
 npm install
 
 
-Set up environment variables:
-
-Create .env.local in the root directory:
+Set environment variables (.env.local):
 
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your_secret_key
@@ -84,40 +47,46 @@ GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 
 
-Run the development server:
+Run the app:
 
 npm run dev
 
 
 Open http://localhost:3000 in your browser.
 
-Usage
+📝 Usage
 Signup Flow
 
-Navigate to /signup
+Go to /signup
 
-Fill in the form (Name, Email, Password, Confirm Password)
+Enter Name, Email, Password, Confirm Password
 
 Submit → redirected to OTP page
 
-Enter OTP → redirected to Signin page
+Enter OTP → redirected to /signin
 
 Signin Flow
 
-Navigate to /signin
+Go to /signin
 
-Enter email/password
+Enter Email & Password
 
-Submit → redirected to /dashboard if successful
+Submit → redirected to /dashboard
 
 Google OAuth
 
-Both Signup and Signin pages support Google login.
+Signup and Signin both support Google login.
 
-Project Structure
+⏱ OTP Resend
+
+Countdown timer before resending OTP
+
+Resend button becomes active after timer
+
+📂 Project Structure
 /app
- ├─ /signup     # Signup page component
- ├─ /signin     # Signin page component
- ├─ /otp        # OTP verification component
- ├─ /dashboard  # Protected page (after login)
- └─ /api        # NextAuth API route
+ ├─ /signup      # Signup page component
+ ├─ /signin      # Signin page component
+ ├─ /otp         # OTP verification page
+ ├─ /dashboard   # Protected page after login
+ └─ /api         # NextAuth API route
