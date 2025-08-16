@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A2SV Authentication Task
+Project Overview
 
-## Getting Started
+This project implements user authentication using Next.js, NextAuth, and Axios.
+It includes:
 
-First, run the development server:
+User Signup with email/password and Google OAuth
 
-```bash
+OTP verification for email confirmation
+
+User Signin using credentials 
+
+Client-side validation and clean UI
+
+Base API URL: https://akil-backend.onrender.com
+
+Features
+
+Signup Page
+
+Users can create accounts via email/password or Google OAuth
+
+Client-side validation for all fields
+
+Redirects to OTP verification after successful signup
+
+Signin Page
+
+Users can login with email/password or Google OAuth
+
+Handles authentication errors gracefully
+
+Stores session securely with NextAuth
+
+OTP Verification Page
+
+Users verify their email using a 4-digit OTP
+
+Countdown timer and resend OTP functionality
+
+Redirects to Signin after successful verification
+
+Security
+
+Passwords are never stored in local storage
+
+Tokens handled securely with NextAuth session
+
+Technologies Used
+
+=> Next.js (App Router)
+
+=> React 18
+
+=> NextAuth.js for authentication
+
+=> Axios for API requests
+
+=> Tailwind CSS for styling
+
+=> React Hook Form for form handling and validation
+
+Installation & Setup
+
+Clone the repository:
+
+git clone https://github.com/shuzeyfa/A2sv-Authentication-Task.git
+cd A2sv-Authentication-Task
+
+
+Install dependencies:
+
+npm install
+
+
+Set up environment variables:
+
+Create .env.local in the root directory:
+
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_secret_key
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+
+Run the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open http://localhost:3000 in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Usage
+Signup Flow
 
-## Learn More
+Navigate to /signup
 
-To learn more about Next.js, take a look at the following resources:
+Fill in the form (Name, Email, Password, Confirm Password)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Submit → redirected to OTP page
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Enter OTP → redirected to Signin page
 
-## Deploy on Vercel
+Signin Flow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Navigate to /signin
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Enter email/password
+
+Submit → redirected to /dashboard if successful
+
+Google OAuth
+
+Both Signup and Signin pages support Google login.
+
+Project Structure
+/app
+ ├─ /signup     # Signup page component
+ ├─ /signin     # Signin page component
+ ├─ /otp        # OTP verification component
+ ├─ /dashboard  # Protected page (after login)
+ └─ /api        # NextAuth API route
